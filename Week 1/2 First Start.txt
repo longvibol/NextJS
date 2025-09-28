@@ -1,0 +1,59 @@
+Webside hosting : https://app.netlify.com/
+
+1. install nextJS
+
+https://nextjs.org/docs/app/getting-started/installation
+
+2. create project 
+
+>> npx create-next-app@latest
+
+node package executor = npx 
+
+or if we don't want to use npm we can use 
+
+>> npm install create-next-app@latest -g 
+
+មានន័យថាបើយើងយក create-next-app មកប្រើវាមិនបានទេព្រោះវាមិនស្គាល់នៅក្នុងម៉ាស៊ីនយើង ចឹងចង់អោយវាស្គាល់យើងត្រូវតម្លើងវា
+ជា global command សិន 
+
+>> npm install create-next-app@latest -g
+
+So we can use the command : create-next-app to create project 
+
+but they always update for the nextJS cli therefore, we should use : npx create-next@latest to get the last version. 
+
+
+3. JSX : JavaScript XML
+
+4. TSX : TypeScript XML 
+
+5. build 
+
+>> npm run build 
+
+វាធ្វើការ Prebuild វាបង្កើត page ដែលមិន request to database to html then it will faster 
+
+
+to run the project :
+
+>> npm run start 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

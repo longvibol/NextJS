@@ -1,0 +1,18 @@
+1. check git version 
+
+>> git -v
+
+2. npm server :
+
+https://www.npmjs.com/
+
+example: https://www.npmjs.com/package/react
+
+- npm is the main registry where we host our code 
+
+- domain registry : it is the provider 
+
+when we run : npm install មានន័យថាយើងទៅ install package from npm provider 
+but when we run : npx create-nextjs@latest : it run the scrip from registry = it will download from the internet 
+not need to install in local 
+

@@ -1,0 +1,93 @@
+1. Create project with nextJS
+
+- download node js 
+
+>> npx create-next-app@latest
+
+√ What is your project named? ... my-nextjs-app
+√ Would you like to use TypeScript? ... No / Yes
+√ Which linter would you like to use? » Biome
+√ Would you like to use Tailwind CSS? ... No / Yes
+√ Would you like your code inside a `src/` directory? ... No / Yes
+√ Would you like to use App Router? (recommended) ... No / Yes
+√ Would you like to use Turbopack? (recommended) ... No / Yes
+√ Would you like to customize the import alias (`@/*` by default)? ... No / Yes
+Creating a new Next.js app in C:\Users\GE66\Desktop\NextJS Course\my-nextjs-app.
+
+
+2. run project 
+
+>> npm run dev 
+
+3. create route 
+
+in the next js it is from React and for the rout it is folder base 
+
+Want to use : http://localhost:3000/about 
+
+- crate folder about in the scr/app then create file page.tsx 
+
+export default function about(){
+    return <div>From about</div>
+}
+
+4. what is component in react 
+
+* function is the component in the react. so when we want to display about commponent we create function :
+
+function Button() {
+  return <button type="button">This is my button</button>;
+}
+
+export default function About() {
+  return (
+    <div>
+      From About <br/>
+      <Button />
+    </div>
+  );
+}
+
+--> functoin Button() is the component : when use <Button /> 
+
+
+5. what is React Fragement 
+
+<> </> it called fragement and it do nothing just to create the block of code 
+
+
+6. run javascrip 
+
+example: we crete file name server.js : 
+
+In side the fiel have : 
+
+console.log("Hello Vibol")
+
+>> node server.js 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
