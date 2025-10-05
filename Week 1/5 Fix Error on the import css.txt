@@ -1,0 +1,19 @@
+Likely Cause: TypeScript Confusion in app Directory
+In Next.js 13+ with the App Router, your layout file is usually inside the app/ directory. TypeScript sometimes gets confused when importing CSS in server components (like layout.tsx), even though it's valid.
+
+
+1.  Check tsconfig.json
+
+{
+  "compilerOptions": {
+    "types": ["node"]
+  }
+}
+
+2. Add a CSS module declaration
+
+If the error says something like “Cannot find module './globals.css'”, add a declaration file: Create global.d.ts in your root folder with:
+declare module "*.css";
+
+
+

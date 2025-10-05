@@ -1,0 +1,70 @@
+Layout is where we store the metadata for our webpage 
+
+
+1. create components 
+
+in the folder create components then crate nav-header.tsx 
+
+import Link from "next/link";
+
+export default function NavHeader() {
+  return (
+    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 py-4 shadow-lg flex justify-center space-x-8 font-semibold text-lg">
+      <Link href={"/"} className="hover:text-yellow-300 transition duration-300 ease-in-out">
+        Home
+      </Link>
+      <Link href={"/about"} className="hover:text-yellow-300 transition duration-300 ease-in-out">
+        About
+      </Link>
+      <Link href={"/"} className="hover:text-yellow-300 transition duration-300 ease-in-out">
+        Contact Us
+      </Link>
+      <Link href={"/blog"} className="hover:text-yellow-300 transition duration-300 ease-in-out">
+        Blog
+      </Link>
+    </div>
+  );
+}
+
+
+2. in the layout 
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NavHeader />
+        {children}
+      </body>
+    </html>
+  );
+}
+
+
+3. in the globals.css
+
+we keep on the @import "tailwindcss";
+
+===============================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
