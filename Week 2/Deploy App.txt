@@ -1,0 +1,74 @@
+1- download shacn : component soft code 
+
+https://ui.shadcn.com/
+
+--> https://ui.shadcn.com/docs/installation/next
+
+>>npx shadcn@latest init
+
+2. install shadcn component 
+
+We need to install by oursevle to get the component from shadcn 
+
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+
+>> npx shadcn@latest add button card
+
+
+3. Edit in the VS code 
+
+Ctlt + d ( Aa and the select shearch) 
+
+4. Generate webpage from V0
+
+>> please make it more interesting with the background animation and this page is my portfolio freelancer
+
+>> can you add the dark mode to this page
+
+>> please change the backgroun to the light blue. and i am Cambodia please make it more like to my country view 
+
+
+5. Deployment 
+
+ដោយសារតែ NextJS build from Vercel that why deploy in the Vercel it is easy 
+
+https://vercel.com/
+
+- Create the GitHub Repository then update the soft code to the repository. 
+
+- Add New -> Project :https://vercel.com/new?teamSlug=long-vibols-projects
+
+- Then we can revie the webpage 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
