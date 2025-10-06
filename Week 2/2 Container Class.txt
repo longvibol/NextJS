@@ -1,0 +1,41 @@
+1. container class in the tailwindcss
+
+https://v3.tailwindcss.com/docs/container
+
+មានន័យថាបើយើងដាក់ class container ចូលក្នុង class របស់យើងគឺវាធ្វើអោយយើង Auto 
+
+None	width: 100%;
+sm (640px)	max-width: 640px; - mobile 
+md (768px)	max-width: 768px; - taplte
+lg (1024px)	max-width: 1024px; - laptop
+xl (1280px)	max-width: 1280px; - computer 24inch
+2xl (1536px)	max-width: 1536px; - bigger than 24inch
+
+2. Margin in the tailwindcss
+
+- ml : margin-left
+- mr : margin-right
+- mt : margin-top
+- mb : margin-bottom
+- mx : margin-x = ml + mr
+
+
+margin : space at outside 
+
+padding : contain inside 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+1. Create folder router in the app >> feature >>feature>> page.tsx 
+
+function sayMyName(name:String){
+    console.log("Your Name is ", name)
+}
+
+
+export default function FeaturePage(){
+    sayMyName("Vibol");
+    
+    return (
+        <div>        
+        <h1>My Tile</h1>
+        </div>
+    )
+}
+
+---------------------------------------------------------------
+
+We can see it from the console log in the browser 
+
+Server  Your Name is  Vibol
+
+in case we run it in the production mode we don't see this console log 
+
+
+----------------------------------------------------------------
+
+
+2. Add smother-scroll in the class 
+in the react we use : className="smooth-scroll" to create the class CSS 
+
+Ex1: use css class : Styles  
+
++ In layout.tsx 
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="smooth-scroll">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+
++ In the globals.css 
+
+.smooth-scroll{
+  scroll-behavior: smooth;
+}
+
+link : https://tailwindcss.com/docs/scroll-behavior
+
+Ex2: use taiwindcss
+
+<html lang="en" className="scroll-smooth">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

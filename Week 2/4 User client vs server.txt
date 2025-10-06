@@ -1,0 +1,53 @@
+1- If the page put "use client" = this is the client component 
+2- page na no "use client" = page server component 
+
+
+Ex: use client 
+
+"use client";
+
+import { CircleCheck } from "lucide-react";
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
+
+interface PricingFeature {
+  text: string;
+}
+
+
+=============================================
+
+Ex: server component :
+
+export default function FeaturePage(){
+  return(
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+      <div>Feature</div>
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
