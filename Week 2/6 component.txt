@@ -1,0 +1,102 @@
+page.tsx:
+
+
+"use client";
+
+export default function Page() {
+  const handleOnClick1 = () => {
+    console.log("Button Clicked 1");
+  };
+   const handleOnClick2 = () => {
+    console.log("Button Clicked 2");
+  };
+
+  return (
+    <div>
+        <button type="button" onClick={handleOnClick1}>Hello-1</button><br />
+        <button type="button" onClick={handleOnClick2}>Hello-2</button>
+    </div>
+  );
+}
+
+
+-------------------------------
+
+Create component: (mean crate function) 
+
+- React Component ប្រើអក្សរធំ <Button></Button>
+- html Component ប្រើអក្សរតូច <button type="button" onClick={handleOnClick1}>Hello-1</button><br />
+
+Example code : 
+
+===================================================================================
+
+"use client";
+
+export default function Page() {
+  const handleOnClick1 = () => {
+    console.log("Button Clicked 1");
+  };
+   const handleOnClick2 = () => {
+    console.log("Button Clicked 2");
+  };
+
+  return (
+    <div>
+        <button type="button" onClick={handleOnClick1}>Hello-1</button><br />
+        <button type="button" onClick={handleOnClick2}>Hello-2</button><br />
+
+        <Button></Button>
+    </div>
+  );
+}
+
+function Button(){
+ const handleOnClick = () => {
+    console.log("Button Clicked from compnent");
+  };
+
+    return <button type="button" onClick={handleOnClick}>Hello</button>;
+}
+
+
+================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

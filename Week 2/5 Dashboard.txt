@@ -1,0 +1,61 @@
+1. download shacn 
+
+https://ui.shadcn.com/blocks
+
+Install it in the terminal : 
+
+>> npx shadcn@latest add dashboard-01
+
+
+** Refresh Page** 
+
+- Ctrl + Shift + R = Hot reload in order to clear catch in the web reload 
+- Ctrl + R = Reload page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
