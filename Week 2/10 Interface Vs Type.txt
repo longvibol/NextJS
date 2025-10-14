@@ -1,0 +1,88 @@
+How to write Type and Interface :
+
+Link : https://ui.shadcn.com/docs/dark-mode/next
+
+
+
+-----------------------------
+
+Interface :
+
+- when we create the same name interface it will merge together :
+
+Example:
+
+interface User {
+  name : string;
+  age: number;
+}
+
+interface User{
+  email? : string;
+}
+
+
+interface ButtonProps {
+  children: React.ReactNode;
+  handleOnClick: () => void;
+  MyClassName?:string;
+  variant?: "default" | "primary" | "error";
+}
+
+-----------------------------
+
+Type : Unions = មួយណាក៏បាន = option = or 
+
+type ButtonPropsType = {
+    children: React.ReactNode;
+  handleOnClick: () => void;
+  MyClassName?:string;
+  variant?: "default" | "primary" | "error";
+}
+
+-------------------------------
+
+How to extended :
+
+interface ExtraProps {
+    bg: string;
+}
+
+==> 
+
+type ButtonPropsType = ExtraProps &{
+    children: React.ReactNode;
+  handleOnClick: () => void;
+  MyClassName?:string;
+  variant?: "default" | "primary" | "error";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

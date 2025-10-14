@@ -1,0 +1,120 @@
+យើងដាក់ Page ណាដែលយើងចង់បាន មានអីដូចគ្នាចូលក្នុង Layout 
+
+
+1- Destruction declaration style 
+
+type LayoutProps ={
+    children: React.ReactNode;
+}
+
+
+export default function Layout(props: LayoutProps){
+    const {children} = props;
+    return <> 
+    <div>
+        {children}    
+    </div> </>;
+
+}
+
+
+2- in side object 
+
+import { NavHeader } from "@/components/sharing/nav-header";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div>
+      <NavHeader></NavHeader>
+      {children}
+    </div>
+  );
+}
+
+
+-----------------------------------------------------------------------------------
+
+import { useRouter } from "next/navigation"
+
+const router = useRouter()
+
+
+Dear anonymouse declaration :
+
+<DropdownMenuItem onClick={()=> router.replace("/")}>
+              <IconLogout />
+              Log out
+</DropdownMenuItem> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

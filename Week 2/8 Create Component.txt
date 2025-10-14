@@ -1,0 +1,100 @@
+** Whole code in one file : *** 
+
+"use client";
+
+export default function Page() {
+  const sayMyName = () => console.log("My button function called");
+  const sayMyStudent = () => console.log("My studend is Dara");
+
+
+  return (
+    <div>
+      <MyButton handleOnClick={sayMyName}>My Button 1</MyButton><br />
+      <MyButton handleOnClick={sayMyStudent}>My Button 2</MyButton>
+    </div>
+  );
+}
+
+interface ButtonProps {
+  handleOnClick: () => void;
+  children: React.ReactNode;
+
+}
+
+function MyButton(props: ButtonProps) {
+  // Object destructuring
+  const { handleOnClick, children } = props;
+
+  return (
+    <button className="bg-red-400" type="button" onClick={handleOnClick}>
+      {children}
+    </button>
+  );
+}
+
+
+--------------------------------- Separate 
+
+In the share component folder :
+
+
+1- create one folder to save component 
+
+in the share :
+
+interface ButtonProps {
+  handleOnClick: () => void;
+  children: React.ReactNode;
+
+}
+
+export function MyButton(props: ButtonProps) {
+  // Object destructuring
+  const { handleOnClick, children } = props;
+
+  return (
+    <button className="bg-red-400" type="button" onClick={handleOnClick}>
+      {children}
+    </button>
+  );
+}
+
+
+2. in the main page : 
+
+"use client";
+
+import { MyButton } from "@/components/sharing/my-button";
+
+export default function Page() {
+  const sayMyName = () => console.log("My button function called");
+  const sayMyStudent = () => console.log("My studend is Dara");
+
+
+  return (
+    <div>
+      <MyButton handleOnClick={sayMyName}>My Button 1</MyButton><br />
+      <MyButton handleOnClick={sayMyStudent}>My Button 2</MyButton>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+page.tsx
+
+"use client";
+
+import { MyButton } from "@/components/sharing/my-button";
+
+export default function Page() {
+  const sayMyName = () => console.log("My name is vibol");
+  const sayMyStudent = () => console.log("My studend is Dara");
+  const sayMyTecher = () => console.log("My teacher is Piseth");
+
+  return (
+    <div className="space-x-2">
+      <MyButton
+        handleOnClick={sayMyName}
+        variant="default"
+        MyClassName="rounded-none"
+      >
+        Name
+      </MyButton>
+      <MyButton
+        handleOnClick={sayMyStudent}
+        variant="primary"
+        MyClassName="rounded-full"
+      >
+        Student
+      </MyButton>
+      <MyButton handleOnClick={sayMyTecher} variant="error"
+      MyClassName="hover:bg-green-400">
+        Teacher
+      </MyButton>
+    </div>
+  );
+}
+
+-----------------------------------------------------------------
+
+Component : my-button.tsx
+
+import { cn } from "@/lib/utils";
+
+interface ButtonProps {
+  children: React.ReactNode;
+  handleOnClick: () => void;
+  MyClassName?:string;
+  variant?: "default" | "primary" | "error";
+}
+
+export function MyButton(props: ButtonProps) {
+  // Object destructuring
+  const { children, MyClassName, variant = "default", handleOnClick } = props;
+  return (
+    <button className={cn(
+       "border-black rounded-xl px-4 p-2 text-black bg-amber-600",
+       variant === "primary" && "bg-blue-500 text-white",
+       variant === "error" && "bg-red-500 text-white",
+       MyClassName
+    )} type="button" onClick={handleOnClick}>
+      {children}
+    </button>
+  );
+}
+
+
+
+
+
+
+
+
+
+

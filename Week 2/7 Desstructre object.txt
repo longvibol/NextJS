@@ -1,0 +1,296 @@
+Destructors object 
+
+const user = {
+    name : "hello",
+    email : "m@gmail.com",
+    avatar: "/avatars/shadcn.jpg"
+}
+
+const {name,email} = user
+console.log({name})
+console.log({email})
+console.log(user)
+
+--------------------------------------
+
+{name: 'hello'}
+
+{email: 'm@gmail.com'}
+
+{name: 'hello', email: 'm@gmail.com', avatar: '/avatars/shadcn.jpg'}
+
+
+---------------------------------------------------
+
+What is component : function return is called component in React 
+
+function MyButton(props: ButtonProps) {
+  // Object destructuring
+  const { handleOnClick,children } = props;
+
+  return (
+    <button className="bg-red-400" type="button" onClick={handleOnClick}>
+      hello
+    </button>
+  );
+}
+
+
+for the function we crate interface for define rule :
+
+interface ButtonProps {
+  handleOnClick: () => void;
+  children: React.ReactNode;
+
+}
+
+==> whole code :
+
+interface ButtonProps {
+  handleOnClick: () => void;
+  children: React.ReactNode;
+
+}
+
+function MyButton(props: ButtonProps) {
+  // Object destructuring
+  const { handleOnClick,children } = props;
+
+  return (
+    <button className="bg-red-400" type="button" onClick={handleOnClick}>
+      {children}
+    </button>
+  );
+}
+
+
+-----------------------------------------------------------------------------------------------
+Parent :  <MyButton>My Button 1</MyButton>
+
+
+-------------------------------
+
+Children : is what we put inside the Parent <component></componnet>
+
+
+export default function Page() {
+  const sayMyName = () => console.log("My button function called");
+  const sayMyStudent = () => console.log("My studend is Dara");
+
+
+  return (
+    <div>
+      <MyButton handleOnClick={sayMyName}>My Button 1</MyButton><br />
+      <MyButton handleOnClick={sayMyStudent}>My Button 2</MyButton>
+    </div>
+  );
+}
+
+
+in the interface we need to put the property :  children: React.ReactNode;
+
+
+----------------------------------------------------------------------------------------------
+
+{children} is called property binding 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

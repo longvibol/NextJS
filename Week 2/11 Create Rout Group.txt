@@ -1,0 +1,43 @@
+Create Rout Group
+
+1. Crate folder name with ()
+Ex: 
+
+>>app>>(landing)
+
+when the React see the (dashboard)/feature ==> it will not consider () for the page rout 
+
+
+Example create function in React :
+
+
+function MyButton({lable} : {lable : string}){
+    return <button type="button">{lable}</button>
+}
+
+ពេលយក function នឹងទៅប្រើ
+
+<MyButton>{lable}</MyButton>
+
+
+Explain :
+
+import type React from "react";
+
+interface Props {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: Readonly<Props>) {}
+
+function MyButton({ lable }: { lable: string; children: React.ReactNode }) {
+  return <button type="button">{lable}</button>;
+}
+
+// Parent
+function App() {
+  const title = "Hello My Name is Vibol";
+
+  // Children
+  <MyButton lable={title}>Hello</MyButton>;
+}
