@@ -1,0 +1,82 @@
+How to query the date :
+
+import { db } from "@/app/db/drizzle"
+import { todo } from "@/app/db/schema"
+import { cacheLife } from "next/cache";
+import { Suspense } from "react";
+
+
+async function getTodos() {
+    "use cache"
+    cacheLife("minutes")
+    return db.select().from(todo)
+}
+
+export default async function TodoPage(){
+
+    const todos = await getTodos();
+
+    return <div>
+        <Suspense>
+            {JSON.stringify(todos, null,2)}
+        </Suspense>
+    </div>
+}
+
+
+--------------------------------------------------------
+
+This will return in one object but we need to do loop each date 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

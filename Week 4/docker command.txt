@@ -1,0 +1,18 @@
+1. check volume in the docker 
+
+>> docker volume ls 
+
+
+2. remove volume 
+
+>> docker ps 
+
+>> docker-compose down
+
+>> docker stop <container_name>
+
+>> docker volume rm postgres_data
+
+Force remove 
+
+>> docker volume rm -f postgres_data

@@ -1,0 +1,28 @@
+* When we click on the button make it highlight * 
+
+1. Import function usePathname 
+
+import { usePathname } from "next/navigation"
+
+
+2. How to use the function 
+
+- const pathname = usePathname(); - Create instance 
+- isActive : is the tag that make the button true or false 
+
+- pathname is the current URL 
+
+        <SidebarMenu>
+          {items.map((item) => (
+            <SidebarMenuItem key={item.title}>
+              <SidebarMenuButton tooltip={item.title} asChild isActive={pathname === item.url}>
+                <Link href={item.url} className="flex items-center gap-2">
+                {item.url}
+                {item.icon && <item.icon />}
+                <span>{item.title}</span>
+                </Link>
+                
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+        </SidebarMenu>

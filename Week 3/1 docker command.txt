@@ -1,0 +1,17 @@
+- docker hub is the Registry where we download the service 
+
+>> docker --help 
+
+>> docker ps (ps processor)  : to check the service inside our pc running 
+
+- nginx : is the webserver that allow us to deploy the webapplication 
+
+>> docker run -p 8080:80 --name my-nginx nginx
+
+- stop service 
+
+>> docker stop "service id" 
+
+- start service 
+
+>> docker start "service id"

@@ -1,0 +1,167 @@
+Hook : is the reusable function to create state 
+
+There are two : react hook and custom hook
+
+---------------------------- Reack Hook Vs JS function 
+
+1. React Hook 
+
+
+"use client";
+
+// biome-ignore assist/source/organizeImports: <explanation>
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+// 1. React Standard HOOK
+// 2. Custom HOOK
+
+// React Re-Render when:
+// 1. useState's value changed
+// 2. Prop's changes: string, number, boolean, callback
+// 3. Contex's value changed
+
+export default function HookExplain() {
+  // Syntax 
+  // const [getter, setter] = useState(initialValue);
+  // When we want to change the state we need to called the setter 
+  const [count, setCount] = useState(0);
+
+  let sum = 0;
+  function increaseSun() {
+    sum = sum + 1;
+    console.log("Sum Value:", sum);
+  }
+
+  return (
+    <div>
+      Count from React Hook {count}
+      <hr />
+      <Button onClick={() => setCount((prve) => prve + 1)}>
+        Click to increase count from React Hook
+      </Button>
+      <hr/>
+      Sum: {sum}
+      <hr />
+      <Button onClick={increaseSun}>Increase sum</Button>
+    </div>
+  );
+}
+
+
+-----------------------------------------------------------------------------
+
+change from JS to the useState 
+
+export default function HookExplain() {
+  // Syntax 
+  // const [getter, setter] = useState(initialValue);
+  // When we want to change the state we need to called the setter 
+  const [count, setCount] = useState(0);
+  const [sum, setSum] = useState(0);
+
+
+  function increaseSun() {
+    
+    // setSum(sum +1);
+    setSum((prev)=> prev+1);
+    console.log("Sum Value:", sum);
+  }
+
+
+===========================================================================
+
+2. Custom Hook 
+
+- create file ts : normaly we create with "use"
+
+2.1 useHook.ts 
+
+import { useState } from "react";
+
+export function useHook(){
+     // Syntax 
+  // const [getter, setter] = useState(initialValue);
+  // When we want to change the state we need to called the setter 
+  const [count, setCount] = useState(0);
+  const [sum, setSum] = useState(0);
+
+
+  function increaseSum() {
+    
+    // setSum(sum +1);
+    setSum((prev)=> prev+1);
+    console.log("Sum Value:", sum);
+  }
+  return{
+    count,
+    setCount,
+    sum,
+    increaseSum
+  }
+}
+
+
+2.2 page.tsx
+
+"use client";
+
+// biome-ignore assist/source/organizeImports: <explanation>
+import { Button } from "@/components/ui/button";
+import { useHook } from "./useHook";
+
+export default function HookExplain() {
+ // custom hook
+  const {count, setCount, sum, increaseSum} = useHook();
+
+  return (
+    <div>
+      Count from React Hook {count}
+      <hr />
+      <Button onClick={() => setCount((prve) => prve + 1)}>
+        Click to increase count from React Hook
+      </Button>
+      <hr/>
+      Sum: {sum}
+      <hr />
+      <Button onClick={increaseSum}>Increase sum</Button>
+    </div>
+  );
+}
+
+
+
+Note:
+
+import { useHook } from "./useHook";
+
+ // destructors 
+  const {count, setCount, sum, increaseSum} = useHook();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

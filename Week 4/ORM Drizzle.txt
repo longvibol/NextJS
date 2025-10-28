@@ -1,0 +1,251 @@
+ORM = Object Relational Mapping 
+
+- Eslint = when we need to use the React compiler 
+- React Compiler : use called back... 
+
+Install new Next JS 
+
+1. install command 
+
+>> npx create-next-app@latest next-drizzle-app
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+
+- babel-plugin-react-compiler
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- @tailwindcss/postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+
+
+2- Config React Compiler 
+
+Link:
+
+https://orm.drizzle.team/docs/tutorials/drizzle-nextjs-neon
+
+2-2 setup in the project: next.config.ts
+
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactCompiler: true,
+  cacheComponents: true,
+  experimental:{
+    turbopackFileSystemCacheForDev: true,
+  }
+};
+
+export default nextConfig;
+
+
+2-3 install drizzle (ORM) 
+
+npm i drizzle-orm
+npm i -D drizzle-kit
+npm i -D drizzle-kit @types/pg
+
+
+2-4 Create the file : drizzle.ts
+
+Create a drizzle.ts file in your src/db folder and set up your database configuration:
+
+
+- node-postgress : ពេលវាដាច់ connection វាប្រាប់មកវិញ
+
+connect with postgress: 
+
+https://orm.drizzle.team/docs/get-started-postgresql
+
+2-5 connection string to postgress 
+
+
+postgresql://<username>:<password>@<hostname>:<port>/<database_name>
+
+
+- dialect: "postgresql", = dialect is the name of the database 
+
+- process migrate = mean we run the SQl or query to crate the table 
+
+2-6 Crate table from JS 
+
+>> npx drizzle-kit generate
+
+- Driver will run the scrip from JS to crate query for database 
+
+>> npx drizzle-kit migrate
+
+2-7 Open studio 
+
+>> npx drizzle-kit studio 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+“snake_case” (a naming convention):
+
+Definition: A naming style where words are written in lowercase and separated by underscores.
+Example: user_profile_data
