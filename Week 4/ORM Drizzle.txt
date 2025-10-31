@@ -59,7 +59,6 @@ npm i -D drizzle-kit @types/pg
 
 Create a drizzle.ts file in your src/db folder and set up your database configuration:
 
-
 - node-postgress : ពេលវាដាច់ connection វាប្រាប់មកវិញ
 
 connect with postgress: 

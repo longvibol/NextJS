@@ -1,0 +1,359 @@
+How to Connect from NextJS to Postgress with docker!
+
+1- Create docker image :
+
+"docker-compose.yml"
+
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_container
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+1-1 Run command to create postgress db 
+
+>> docker-compose up -d
+
+or 
+
+>> docker compose -f docker-compose.yml up -d
+
+
+------------------------------------------------------------------------
+
+2- Connection to database 
+
+Host: 127.0.0.1 or localhost 
+user:  admin
+password : admin
+DB_name : mydatabase
+
+
+We use the docker-compose information that we setup database. 
+
+
+3- Create NextJS project 
+
+>> npx create-next-app@latest next-js
+
+Installing devDependencies:
+
+- babel-plugin-react-compiler
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- @tailwindcss/postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+
+
+4- Setup connection to Postgresql (Neon Postgres) 
+4-1 : Install ORM - install drizzle-orm 
+
+>> npm i drizzle-orm 
+>> npm i -D drizzle-kit
+>> npm i dotenv
+
+Check inside package.json 
+
+"dependencies": {
+    "drizzle-orm": "^0.44.7",
+    "next": "16.0.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "drizzle-kit": "^0.31.6",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+
+4-2 add configure connection to Postgres during build time 
+
+In the root location : next.config.ts
+
+-----------------------------------------------------
+
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  reactCompiler: true,
+  cacheComponents: true,
+  experimental:{
+    turbopackFileSystemCacheForDev: true,
+  }
+};
+
+export default nextConfig;
+
+
+-----------------------------------------------------
+
+5-Connect to your database
+
+Initialize the driver and make query
+
+>> npm i drizzle-orm pg
+>> npm i -D drizzle-kit @types/pg
+
+5-1 Create connection from our app to postgress :
+
+- install dotenv 
+>> npm install dotenv
+
+- create file ".env" in the root folder 
+
+syntax:
+
+postgresql://<username>:<password>@<hostname>:<port>/<database_name>
+
+==> DATABASE_URL=postgresql://admin:admin@127.0.0.1:5432/mydatabase
+
+
+- Create a drizzle.config.ts file in the root of your project and add the following content:
+
+drizzle.config.ts
+
+----------------------------------------------
+
+import { config } from 'dotenv';
+import { defineConfig } from "drizzle-kit";
+
+config({ path: '.env' });
+
+export default defineConfig({
+  schema: "./src/app/db/schema.ts",
+  out: "./drizzle",
+  dialect: "postgresql",
+  dbCredentials: {
+    url: process.env.DATABASE_URL!,
+  },
+});
+
+
+----------------------------------------------- 
+
+
+
+- Create a drizzle.ts file in your src/db folder and set up your database configuration:
+
+------------------------------------------------------------------
+
+drizzle.ts 
+
+
+// Make sure to install the 'pg' package 
+import { config } from "dotenv";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
+
+config({ path: ".env" }); // or .env.local
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+export const db = drizzle({ client: pool });
+
+-----------------------------------------------------------------
+
+schema.ts 
+
+-----------------------------------------------------------------
+
+import { integer, text, boolean, pgTable } from "drizzle-orm/pg-core";
+
+export const todo = pgTable("todo", {
+  id: integer("id").primaryKey(),
+  text: text("text").notNull(),
+  done: boolean("done").default(false).notNull(),
+//   done is the name in the JS and "done" is the table name in postgress
+});
+
+
+-----------------------------------------------------------------
+
+
+6-Create Schema 
+
+import { integer, text, boolean, pgTable } from "drizzle-orm/pg-core";
+
+export const todo = pgTable("todo", {
+  id: integer("id").primaryKey(),
+  text: text("text").notNull(),
+  done: boolean("done").default(false).notNull(),
+});
+
+
+------------------------------------------------------------
+
+7- install drizzle-kit generate
+
+>> npx drizzle-kit generate 
+>> npx drizzle-kit migrate 
+
+8- install studio 
+
+>> npx drizzle-kit studio 
+
+
+9- install swr 
+
+>>npm i swr
+
+
+----------------------------------------------------------------------
+
+Link :
+
+https://orm.drizzle.team/docs/tutorials/drizzle-nextjs-neon
+
+https://orm.drizzle.team/docs/get-started-postgresql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
