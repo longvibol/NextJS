@@ -1,0 +1,92 @@
+Create input button with shadcn 
+
+
+
+1-Install shadcn
+
+>> npx shadcn@latest init
+
+
+2- install button and input 
+
+>> npx shadcn@latest add button input label
+
+នៅក្នុង page.tsx បើយើងអត់មានដាក់ពាក្យថា "use client"ទេ មានន័យថាយើងប្រើប្រាស់ជា server side render 
+
+ក្នុងការទាញ Data យើងត្រូវប្រើ use
+
+Ex: crate form :
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+async function createNewUser(formData: FormData) {
+  "use server"
+
+  const payload ={
+    name: formData.get('name'),
+    age: formData.get('age'),
+    email: formData.get('email')
+  }
+  
+}
+
+export default function Page(){
+  return <div className="mx-auto max-w-7wl flex flex-col justify-center items-center mt-10">
+   <form action={createNewUser}>
+      <div className="max-w-2xl flex flex-col gap-4">
+        <h1 className="text-2xl font-bold">Crate New User</h1>
+        <Label>Name</Label>
+        <Input name="name"></Input>
+
+        <Label>Age</Label>
+        <Input name="age"></Input>
+
+        <Label>Email</Label>
+        <Input name="email"></Input>
+
+        <Button>Submit</Button>
+    </div>
+   </form>
+  </div>
+}
+
+Explain: there are two type : export default function Page(){...} វាជា Form and it render to the webpage 
+after they submit the button it will sent to the "use server" side 
+
+
+console.log({payload})
+
+>> 
+
+
+{ payload: { name: 'vibol', age: '12', email: 'vibol@!mvbial' } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

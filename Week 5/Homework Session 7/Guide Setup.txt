@@ -235,63 +235,6 @@ https://orm.drizzle.team/docs/get-started-postgresql
 
 
 
-============================================================================
-
-1-Put the package.json for run command 
-
-"db:generate": "drizzle-kit generate",
-"db:migrate": "drizzle-kit migrate",
-"db:push": "drizzle-kit push"
-
-when we run the "drizzle-kit generate" it will convert from SQL to schema 
-
->>npx drizzle-kit generate
-
-Then it will create folder file that have .sql 
-
-drizzle> meta >0000_pink_the_phantom.sql 
-
-2-update to the database 
-
->> npx drizzle-kit migrate 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,8 +1,8 @@
-import { integer, text, boolean, pgTable } from "drizzle-orm/pg-core";
+import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
 
-export const todo = pgTable("todo", {
-  id: integer("id").primaryKey(),
-  text: text("text").notNull(),
-  done: boolean("done").default(false).notNull(),
-//   done is the name in the JS and "done" is the table name in postgress
+export const usersTable = pgTable("users", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  name: varchar("name", { length: 255 }),
+  age: integer("age"),
+  email: varchar("email", { length: 255 }),
 });

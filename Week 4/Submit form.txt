@@ -1,11 +1,12 @@
+if we want to get the real time update to the page we need to separate the Section 
+
+--------------page.tsx-------------form
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { usersTable } from "../../db/schema";
 import { db } from "./../../db/drizzle";
-import UserList from "./_components/UserList";
-import { Suspense } from "react";
-import { revalidateTag } from "next/cache";
 
 async function createNewUser(formData: FormData) {
   "use server";
@@ -21,12 +22,21 @@ async function createNewUser(formData: FormData) {
   await db
     .insert(usersTable)
     .values({ age: payload.age, email: payload.email, name: payload.name });
-
-    // when we insert new date we tell to the server to clear cachase
-    revalidateTag("user-list", "max")
 }
 
+// get from server  
+async function getAllUsers() {
+  "use server"; // to clearify this is server function 
+  return await db.select().from(usersTable)
+}
+
+
+
 export default async function Page() {
+
+  // when it startup we mount from the server
+  const users = await getAllUsers()
+
   return (
     <div className="max-w-7xl mx-auto p-4 grid grid-cols-2 gap-4">
       <form action={createNewUser}>
@@ -44,14 +54,52 @@ export default async function Page() {
           <Button>Submit</Button>
         </div>
       </form>
-      <div>
-        <h1>User</h1>
+      <section>
+        User
+        {/* {JSON.stringify(users, null, 2)} */}
 
-        {/* this below is dynamix so we need to use in Suspense */}
-        <Suspense fallback={<h1>Loading User</h1>}>
-          <UserList></UserList>
-        </Suspense>
-      </div>
+        <ul>
+          {users.map((user)=> (
+            <li key={user.id}>
+              Username: {user.name}, Age: {user.age}, Email: {user.email}
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }
+
+
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
